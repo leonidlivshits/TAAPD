@@ -1,7 +1,8 @@
 package main
 
 type Channel interface {
-	isChannel()
+	commonData() ChannelData
+	kindAndDetail() (string, string)
 }
 
 type ChannelData struct {
@@ -10,19 +11,19 @@ type ChannelData struct {
 	MessageMB float64
 }
 
+func (data ChannelData) commonData() ChannelData {
+	return data
+}
+
 type WiredChannel struct {
 	ChannelData
 	CableLengthM float64
 }
 
-func (WiredChannel) isChannel() {}
-
 type RadioChannel struct {
 	ChannelData
 	FrequencyMHz float64
 }
-
-func (RadioChannel) isChannel() {}
 
 var (
 	_ Channel = WiredChannel{}
