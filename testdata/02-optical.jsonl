@@ -1,0 +1,2 @@
+{"type":"optical","name":"FIBER-1","speed_mbps":1000,"message_mb":12,"fiber_mode":"одномодовое","fiber_count":4}
+{"type":"optical","name":"FIBER-2","speed_mbps":2000,"message_mb":20,"fiber_mode":"многомодовое","fiber_count":12}

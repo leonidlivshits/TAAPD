@@ -1,0 +1,3 @@
+{"type":"optical","name":"FIBER-3","speed_mbps":1000,"message_mb":8,"fiber_mode":"многомодовое","fiber_count":8}
+{"type":"wired","name":"LAN-3","speed_mbps":100,"message_mb":2,"cable_length_m":40}
+{"type":"radio","name":"RADIO-3","speed_mbps":54,"message_mb":5,"frequency_mhz":2400}
