@@ -1,5 +1,5 @@
-{"type":"radio","name":"RADIO-1","speed_mbps":24,"message_mb":3,"frequency_mhz":900}
-{"type":"wired","name":"LAN-2","speed_mbps":1000,"message_mb":0,"cable_length_m":120}
-{"type":"radio","name":"RADIO-3","speed_mbps":150,"message_mb":7.25,"frequency_mhz":5000}
-{"type":"wired","name":"LAN-4","speed_mbps":10,"message_mb":1.5,"cable_length_m":0}
-{"type":"radio","name":"RADIO-5","speed_mbps":75,"message_mb":11,"frequency_mhz":1800}
+{"type":"radio","name":"RADIO-1","owner":"Радио-1","speed_mbps":24,"message_mb":3,"frequency_mhz":900}
+{"type":"wired","name":"LAN-2","owner":"Сеть-2","speed_mbps":1000,"message_mb":0,"cable_length_m":120}
+{"type":"radio","name":"RADIO-3","owner":"Радио-3","speed_mbps":150,"message_mb":7.25,"frequency_mhz":5000}
+{"type":"wired","name":"LAN-4","owner":"Сеть-4","speed_mbps":10,"message_mb":1.5,"cable_length_m":0}
+{"type":"radio","name":"RADIO-5","owner":"Радио-5","speed_mbps":75,"message_mb":11,"frequency_mhz":1800}
