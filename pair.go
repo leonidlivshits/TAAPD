@@ -13,6 +13,8 @@ func PairPhrase(first, second Channel) (string, error) {
 			return "Встретились два проводных канала.", nil
 		case RadioChannel:
 			return "Проводной канал идёт перед радиоканалом.", nil
+		case OpticalChannel:
+			return "Проводной канал открыл путь оптоволоконному.", nil
 		}
 	case RadioChannel:
 		switch second.(type) {
@@ -20,6 +22,17 @@ func PairPhrase(first, second Channel) (string, error) {
 			return "Сначала радиоканал, за ним проводной канал.", nil
 		case RadioChannel:
 			return "Пара радиоканалов оказалась рядом.", nil
+		case OpticalChannel:
+			return "Радиоканал передал сигнал оптоволоконному.", nil
+		}
+	case OpticalChannel:
+		switch second.(type) {
+		case WiredChannel:
+			return "Оптоволоконный канал оставил проводной позади.", nil
+		case RadioChannel:
+			return "Оптоволоконный канал принял сигнал радиоканала.", nil
+		case OpticalChannel:
+			return "Два оптоволоконных канала замкнули пару.", nil
 		}
 	}
 	return "", fmt.Errorf("неподдерживаемая пара каналов: %T и %T", first, second)
