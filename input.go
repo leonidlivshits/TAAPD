@@ -11,6 +11,7 @@ import (
 type channelRecord struct {
 	Type         string   `json:"type"`
 	Name         string   `json:"name"`
+	Owner        string   `json:"owner"`
 	SpeedMbps    *float64 `json:"speed_mbps"`
 	MessageMB    *float64 `json:"message_mb"`
 	CableLengthM *float64 `json:"cable_length_m"`
@@ -58,6 +59,9 @@ func (record channelRecord) toChannel() (Channel, error) {
 	if strings.TrimSpace(record.Name) == "" {
 		return nil, fmt.Errorf("name: нужно непустое имя канала")
 	}
+	if strings.TrimSpace(record.Owner) == "" {
+		return nil, fmt.Errorf("owner: нужен непустой владелец канала")
+	}
 	if record.SpeedMbps == nil || *record.SpeedMbps <= 0 {
 		return nil, fmt.Errorf("speed_mbps: нужна положительная скорость")
 	}
@@ -67,6 +71,7 @@ func (record channelRecord) toChannel() (Channel, error) {
 
 	data := ChannelData{
 		Name:      record.Name,
+		Owner:     record.Owner,
 		SpeedMbps: *record.SpeedMbps,
 		MessageMB: *record.MessageMB,
 	}

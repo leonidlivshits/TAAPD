@@ -7,6 +7,7 @@ type Channel interface {
 
 type ChannelData struct {
 	Name      string
+	Owner     string
 	SpeedMbps float64
 	MessageMB float64
 }
