@@ -29,10 +29,14 @@ func run(inputPath, outputPath string, stdout io.Writer) error {
 		return fmt.Errorf("создать выходной файл: %w", err)
 	}
 
-	writeErr := WriteChannels(io.MultiWriter(stdout, output), channels)
+	writer := io.MultiWriter(stdout, output)
+	writeErr := WriteChannels(writer, channels)
+	if writeErr == nil {
+		writeErr = WriteTransmissionTimes(writer, channels)
+	}
 	closeErr := output.Close()
 	if writeErr != nil {
-		return fmt.Errorf("вывести каналы: %w", writeErr)
+		return fmt.Errorf("вывести данные: %w", writeErr)
 	}
 	if closeErr != nil {
 		return fmt.Errorf("закрыть выходной файл: %w", closeErr)
