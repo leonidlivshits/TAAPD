@@ -14,8 +14,8 @@ func WriteChannels(output io.Writer, channels ChannelContainer) error {
 		data := item.commonData()
 		kind, detail := item.kindAndDetail()
 		if _, err := fmt.Fprintf(output,
-			"%d. %s %q: скорость %g Мбит/с; объём сообщения %g Мбайт; %s\n",
-			i+1, kind, data.Name, data.SpeedMbps, data.MessageMB, detail); err != nil {
+			"%d. %s %q: владелец %q; скорость %g Мбит/с; объём сообщения %g Мбайт; %s\n",
+			i+1, kind, data.Name, data.Owner, data.SpeedMbps, data.MessageMB, detail); err != nil {
 			return err
 		}
 	}
