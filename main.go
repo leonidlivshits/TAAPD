@@ -8,7 +8,7 @@ import (
 
 func main() {
 	if len(os.Args) != 3 {
-		fmt.Fprintln(os.Stderr, "Использование: task-01 <входной-файл.jsonl> <выходной-файл.txt>")
+		fmt.Fprintln(os.Stderr, "Использование: task-06 <входной-файл.jsonl> <выходной-файл.txt>")
 		os.Exit(2)
 	}
 
@@ -29,10 +29,14 @@ func run(inputPath, outputPath string, stdout io.Writer) error {
 		return fmt.Errorf("создать выходной файл: %w", err)
 	}
 
-	writeErr := WriteChannels(io.MultiWriter(stdout, output), channels)
+	writer := io.MultiWriter(stdout, output)
+	writeErr := WriteChannels(writer, channels)
+	if writeErr == nil {
+		writeErr = WriteAllPairs(writer, channels)
+	}
 	closeErr := output.Close()
 	if writeErr != nil {
-		return fmt.Errorf("вывести каналы: %w", writeErr)
+		return fmt.Errorf("вывести каналы и пары: %w", writeErr)
 	}
 	if closeErr != nil {
 		return fmt.Errorf("закрыть выходной файл: %w", closeErr)
