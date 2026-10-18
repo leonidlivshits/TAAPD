@@ -8,7 +8,7 @@ import (
 
 func main() {
 	if len(os.Args) != 3 {
-		fmt.Fprintln(os.Stderr, "Использование: task-06 <входной-файл.jsonl> <выходной-файл.txt>")
+		fmt.Fprintln(os.Stderr, "Использование: task-07 <входной-файл.jsonl> <выходной-файл.txt>")
 		os.Exit(2)
 	}
 
